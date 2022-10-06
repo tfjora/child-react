@@ -34,11 +34,7 @@ export default function View({ persons }: Props) {
 
   return (
     <div className={styles.container}>
-      <MaterialReactTable
-        columns={columns as any}
-        data={mappedPerson as any}
-        enableStickyHeader
-      />
+      <MaterialReactTable columns={columns as any} data={mappedPerson as any} enableStickyHeader />
     </div>
   );
 }
