@@ -43,7 +43,7 @@ export default function PersonDetail() {
         .then((data) => setPersonDetails(data));
     }
     fetchData();
-  }, []);
+  }, [token]);
 
   return (
     <>
