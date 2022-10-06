@@ -4,8 +4,8 @@ export const useStyles = makeStyles({
   container: {
     display: "grid",
     gridTemplateColumns: "1fr",
-    rowGap: "16px",
+    rowGap: "8px",
     borderRadius: "16px",
-    padding: "16px"
+    padding: "16px",
   },
 });

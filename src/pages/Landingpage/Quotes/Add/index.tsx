@@ -91,7 +91,6 @@ export default function Add({ onSave }: Props) {
                     value={values.dateTime}
                 />
 
-                <Divider />
                 <Button color="primary" variant="contained" onClick={onClick}>
                     Save details
                 </Button>

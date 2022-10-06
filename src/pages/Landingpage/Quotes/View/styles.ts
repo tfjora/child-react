@@ -2,12 +2,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
     table: {
-        border: '1px solid lightgrey',
         display: 'grid',
         gridTemplateRows: 'max-content auto',
         maxHeight: `calc(8 * 600px)`,
         overflow: 'auto',
         width: '100%',
+        marginTop:"16px"
     },
     tableBody: {
         display: 'block',

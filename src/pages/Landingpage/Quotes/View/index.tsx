@@ -1,7 +1,8 @@
+import { useMemo } from 'react';
 import type { IQuotes } from '../../../../_models/Quotes';
 import { getDayMonthYear } from '../../../../_utilities/date';
-import Cell from './Cell';
 import { useStyles } from './styles';
+import MaterialReactTable from "material-react-table";
 
 type Props = {
     quotes: null | IQuotes[];
@@ -9,29 +10,34 @@ type Props = {
 
 export default function View({ quotes }: Props) {
     const styles = useStyles();
-
+    const mappedPerson = quotes?.map((p) => ({
+      ...p,
+      name: `${p.person.firstName} ${p.person.lastName}`,
+      quoteDate: getDayMonthYear(p.dateTime),
+    }));
+  
+    const columns = useMemo(
+      () => [
+        {
+          accessorKey: "name", //access nested data with dot notation
+          header: "Name",
+        },
+        {
+          accessorKey: "quote",
+          header: "Quote",
+        },
+        {
+          accessorKey: "quoteDate", //normal accessorKey
+          header: "Quote date",
+        }
+      ],
+      []
+    );
+  
     return (
-        <div>
-            {
-                <table className={styles.table}>
-                    <thead className={styles.tableThead}>
-                        <tr className={styles.tableHeaderRow}>
-                            <th className={styles.tableHeader}>Name</th>
-                            <th className={styles.tableHeader}>Quote</th>
-                            <th className={styles.tableHeader}>Quotes date</th>
-                        </tr>
-                    </thead>
-                    <tbody className={styles.tableBody}>
-                        {quotes?.map((b: IQuotes, index) => (
-                            <tr key={index} className={styles.tableRow}>
-                                <Cell item={`${b.person.firstName} ${b.person.lastName}`} />
-                                <Cell item={b.quote} />
-                                <Cell item={getDayMonthYear(b.dateTime)} />
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            }
-        </div>
+      <div>
+        <MaterialReactTable columns={columns as any} data={mappedPerson as any} enableStickyHeader />
+      </div>
     );
 }
+

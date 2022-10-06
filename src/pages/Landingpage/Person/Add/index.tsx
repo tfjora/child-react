@@ -74,7 +74,6 @@ export default function Add({ onSave }: Props) {
                     disabled={isSaving}
                 />
 
-                <Divider />
                 {isSaving ? (
                     <CircularProgress size={24} />
                 ) : (

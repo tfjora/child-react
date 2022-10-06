@@ -1,38 +1,44 @@
-import type { IPerson } from '../../../../_models/Person';
-import { calculateAge } from '../../../../_utilities/date';
-import Cell from './Cell';
-import { useStyles } from './styles';
+import type { IPerson } from "../../../../_models/Person";
+import { calculateAge } from "../../../../_utilities/date";
+import { useStyles } from "./styles";
+import MaterialReactTable from "material-react-table";
+import { useMemo } from "react";
 
 type Props = {
-    persons: null | IPerson[];
+  persons: null | IPerson[];
 };
-
 export default function View({ persons }: Props) {
-    const styles = useStyles();
+  const styles = useStyles();
 
-    return (
-        <div>
-            <table className={styles.table}>
-                <thead className={styles.tableThead}>
-                    <tr className={styles.tableHeaderRow}>
-                        <th className={styles.tableHeader}>First name</th>
-                        <th className={styles.tableHeader}>Last name</th>
-                        <th className={styles.tableHeader}>Age</th>
-                    </tr>
-                </thead>
-                <tbody className={styles.tableBody}>
-                    {persons &&
-                        persons.map((b: IPerson, index) => (
-                            <tr key={index} className={styles.tableRow}>
-                                <>
-                                    <Cell item={b.firstName} />
-                                    <Cell item={b.lastName} />
-                                    <Cell item={calculateAge(b.dateBorn)} />
-                                </>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-        </div>
-    );
+  const mappedPerson = persons?.map((p) => ({
+    ...p,
+    ageString: calculateAge(p.dateBorn),
+  }));
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: "firstName", //access nested data with dot notation
+        header: "First Name",
+      },
+      {
+        accessorKey: "lastName",
+        header: "Last Name",
+      },
+      {
+        accessorKey: "ageString", //normal accessorKey
+        header: "Age",
+      },
+    ],
+    []
+  );
+
+  return (
+    <div className={styles.container}>
+      <MaterialReactTable
+        columns={columns as any}
+        data={mappedPerson as any}
+        enableStickyHeader
+      />
+    </div>
+  );
 }
