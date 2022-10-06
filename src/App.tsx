@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
 import { useEffect, useState } from "react";
 
@@ -6,7 +7,6 @@ import AppRoutes from "./AppRoutes";
 import { loginApiRequest } from "./authConfig";
 import Header from "./components/Header";
 import { useStyles } from "./styles";
-import { SignInButton } from "./components/SignInButton";
 
 export default function App() {
   const styles = useStyles();

@@ -1,4 +1,4 @@
-import { Button, Divider, TextField } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 
@@ -49,7 +49,7 @@ export default function Add({ onSave }: Props) {
                 });
         }
         fetchData();
-    }, []);
+    }, [token]);
 
     const onClick = async () => {
         await onSave(values);

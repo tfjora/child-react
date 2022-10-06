@@ -1,4 +1,5 @@
-import { Button, Divider, Drawer } from "@material-ui/core";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Button, Drawer } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect, useState } from "react";
 
@@ -53,7 +54,7 @@ export default function Person() {
       }
     }
     fetchData();
-  }, []);
+  }, [token]);
 
   return (
     <>

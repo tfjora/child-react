@@ -1,4 +1,4 @@
-import { Button, Divider, Drawer } from "@material-ui/core";
+import { Button, Drawer } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect, useState } from "react";
 
@@ -42,7 +42,7 @@ export default function Quote() {
         .then((data) => setQuotes(data));
     }
     fetchData();
-  }, []);
+  }, [token]);
 
   return (
     <>
