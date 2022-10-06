@@ -23,7 +23,7 @@ export default function Add({ onSave }: Props) {
 
     const mappedPersonForDropdown = (data: any[]) => {
         return data.map((item, index) => {
-            const isSelected = index == 0;
+            const isSelected = index === 0;
             return {
                 isDisabled: isSelected,
                 isSelected: isSelected,
