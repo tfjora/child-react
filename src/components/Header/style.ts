@@ -6,6 +6,7 @@ export const useStyles = makeStyles({
         borderBottom: "1px solid lightgrey",
         height: '100%',
         width: '100%',
+        background: "#27303f"
     },
     content: {
         padding: "32px",
@@ -15,8 +16,8 @@ export const useStyles = makeStyles({
         boxSizing: "border-box"
     },
     header: {
-        display: 'grid',
-        gridTemplateColumns: '5fr max-content',
+        display: "flex",
+        justifyContent: "space-between",
     },
     headerWithoutTabs: {
         display: "flex",

@@ -13,7 +13,7 @@ export const SignInButton = () => {
   };
   return (
     <Button onClick={() => handleLogin()}>
-      <AccountBoxIcon />
+      <AccountBoxIcon style={{ color: "white" }} />
     </Button>
   );
 };

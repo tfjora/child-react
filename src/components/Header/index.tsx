@@ -1,5 +1,6 @@
 import { useIsAuthenticated } from "@azure/msal-react";
 import { Tab, Tabs } from "@material-ui/core";
+import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
@@ -24,28 +25,53 @@ export default function Header({ children }: any) {
     isAuthenticated && styles.header,
     !isAuthenticated && styles.headerWithoutTabs
   );
+  const theme = createTheme({
+    overrides: {
+      MuiTab: {
+        root: {
+          "&:hover": {
+            backgroundColor: "#161e2e",
+            color: "#161e2e",
+          },
+        },
+        selected: {
+          backgroundColor: "red",
+          color: "red",
+          "&:hover": {
+            backgroundColor: "green",
+            color: "green",
+          },
+        },
+      },
+    },
+  });
   return (
     <>
       <div className={styles.container}>
         <div className={headerClass}>
           {isAuthenticated && (
-            <Tabs>
-              <Tab
-                label={<PersonAddIcon />}
-                value={LandingPageTabs.person}
-                onClick={() => onChange(LandingPageTabs.person)}
-              />
-              <Tab
-                label={<ContactPageIcon />}
-                value={LandingPageTabs.personDetails}
-                onClick={() => onChange(LandingPageTabs.personDetails)}
-              />
-              <Tab
-                label={<MessageIcon />}
-                value={LandingPageTabs.quotes}
-                onClick={() => onChange(LandingPageTabs.quotes)}
-              />
-            </Tabs>
+            <MuiThemeProvider theme={theme}>
+              <Tabs>
+                <Tab
+                  label={<PersonAddIcon />}
+                  value={LandingPageTabs.person}
+                  onClick={() => onChange(LandingPageTabs.person)}
+                  style={{ color: "white" }}
+                />
+                <Tab
+                  label={<ContactPageIcon />}
+                  value={LandingPageTabs.personDetails}
+                  onClick={() => onChange(LandingPageTabs.personDetails)}
+                  style={{ color: "white" }}
+                />
+                <Tab
+                  label={<MessageIcon />}
+                  value={LandingPageTabs.quotes}
+                  onClick={() => onChange(LandingPageTabs.quotes)}
+                  style={{ color: "white" }}
+                />
+              </Tabs>
+            </MuiThemeProvider>
           )}
           {isAuthenticated ? <SignOutButton /> : <SignInButton />}
         </div>
