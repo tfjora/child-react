@@ -6,10 +6,14 @@ export const useStyles = makeStyles({
     boxSizing: "border-box",
     height: "100%",
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   AppRoutesContainer: {
     background: "white",
     borderRadius: "8px",
-    maxWidth: "1400px",
+    maxWidth: "1200px",
+    width: "100%",
   },
 });
