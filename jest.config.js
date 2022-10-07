@@ -18,10 +18,6 @@ const config = {
     transform: {
         ...tsjPreset.transform,
     },
-    transformIgnorePatterns: [
-        'node_modules/?!(@equinor/fusion-react)',
-        'node_modules/?!(@equinor/fusion-wc)',
-    ],
     verbose: true,
 };
 

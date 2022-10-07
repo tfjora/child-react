@@ -14,7 +14,6 @@ module.exports = {
         },
         extends: [
           "eslint:recommended",
-          "plugin:jest/recommended",
           "plugin:@typescript-eslint/recommended",
           "plugin:prettier/recommended",
         ],
@@ -36,7 +35,6 @@ module.exports = {
           "simple-import-sort/imports": "error",
           "sort-keys": ["error", "asc", { caseSensitive: true, natural: false, minKeys: 2 }],
           "sort-keys-fix/sort-keys-fix": "warn",
-          "jest/expect-expect": 0,
           "react/function-component-definition": [
             0,
             {
@@ -50,6 +48,6 @@ module.exports = {
       },
     ],
     parserOptions: { ecmaVersion: 8 },
-    plugins: ["simple-import-sort", "sort-keys-fix", "unused-imports", "jest"],
+    plugins: ["simple-import-sort", "sort-keys-fix", "unused-imports"],
     root: true,
   };
