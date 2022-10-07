@@ -1,11 +1,11 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
-  container: {
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    rowGap: "8px",
-    borderRadius: "16px",
-    padding: "16px",
-  },
+    container: {
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        rowGap: '8px',
+        borderRadius: '16px',
+        padding: '16px',
+    },
 });
