@@ -1,4 +1,4 @@
-import { Button, Drawer } from '@material-ui/core';
+import { Button, Drawer, Switch } from '@material-ui/core';
 import AddIcon from '@mui/icons-material/Add';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +11,7 @@ import View from './View';
 export default function Quote() {
     const [quotes, setQuotes] = useState<IQuotes[]>([]);
     const styles = useStyles();
+    const [toggleQuotesButton, setToggleQuotesButton] = useState(false);
     const [openFlyout, setOpenFlyout] = useState(false);
     const { token } = useAccountContext();
 
@@ -56,11 +57,14 @@ export default function Quote() {
             </Drawer>
             <div className={styles.addButton}>
                 <span className={styles.title}>Quotes</span>
-                <Button onClick={() => setOpenFlyout(true)}>
-                    <AddIcon color="success" />
-                </Button>
+                <div>
+                    <Switch onClick={() => setToggleQuotesButton(!toggleQuotesButton)} />
+                    <Button onClick={() => setOpenFlyout(true)}>
+                        <AddIcon color="success" />
+                    </Button>
+                </div>
             </div>
-            <View quotes={quotes} />
+            <View quotes={quotes} displayQuotes={toggleQuotesButton} />
         </>
     );
 }
