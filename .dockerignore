@@ -8,3 +8,4 @@
 */obj
 **/.toolstarget
 node_modules
+npm-debug.log
