@@ -61,6 +61,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:prod": "npm i --legacy-peer-deps && npm start ",
+    "start:docker": "docker-compose up --build --remove-orphans",
     "build": "react-scripts build",
     "test": "jest --config ./jest.config.js",
     "test:react": "react-scripts test",
