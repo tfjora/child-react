@@ -1,5 +1,4 @@
 export const options = (weightData: any, heightData: any, categories: any) => {
-    console.log('weightData her', weightData);
     return {
         legend: {
             align: 'right',

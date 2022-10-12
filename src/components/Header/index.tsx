@@ -20,7 +20,6 @@ export default function Header({ children }: any) {
     };
 
     const isAuthenticated = useIsAuthenticated();
-    console.log('isAuthenticated', isAuthenticated);
     const headerClass = clsx(
         isAuthenticated && styles.header,
         !isAuthenticated && styles.headerWithoutTabs
