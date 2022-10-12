@@ -1,4 +1,4 @@
-import { Button, Drawer } from '@material-ui/core';
+import { Button, Drawer, Switch } from '@material-ui/core';
 import AddIcon from '@mui/icons-material/Add';
 import { useEffect, useState } from 'react';
 
@@ -12,6 +12,7 @@ export default function PersonDetail() {
     const [personDetails, setPersonDetails] = useState<IPersonDetail[]>([]);
     const styles = useStyles();
     const [openFlyout, setOpenFlyout] = useState(false);
+    const [toggleQuotesButton, setToggleQuotesButton] = useState(false);
     const { token } = useAccountContext();
 
     const onSave = async (content: any) => {
@@ -57,11 +58,14 @@ export default function PersonDetail() {
             </Drawer>
             <div className={styles.addButton}>
                 <span className={styles.title}>Persons details</span>
-                <Button onClick={() => setOpenFlyout(true)}>
-                    <AddIcon color="success" />
-                </Button>
+                <div>
+                    <Switch onClick={() => setToggleQuotesButton(!toggleQuotesButton)} />
+                    <Button onClick={() => setOpenFlyout(true)}>
+                        <AddIcon color="success" />
+                    </Button>
+                </div>
             </div>
-            <View personDetails={personDetails} />
+            <View personDetails={personDetails} displayQuotes={toggleQuotesButton} />
         </>
     );
 }
