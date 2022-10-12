@@ -70,8 +70,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint **/src/**/*.{ts,tsx}",
     "lint:fix": "eslint **/src/**/*.{ts,tsx} --fix",
-    "docker build": "docker build -f Dockerfile.arm --platform=linux/amd64 -t dawooen/childapp:latest .",
-    "docker push": "docker push dawooen/childapp:latest"
+    "docker:build": "docker build -f Dockerfile.arm --platform=linux/amd64 -t dawooen/childapp:latest .",
+    "docker:push": "docker push dawooen/childapp:latest"
   },
   "browserslist": {
     "production": [
